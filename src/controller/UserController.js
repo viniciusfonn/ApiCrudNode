@@ -24,13 +24,17 @@ module.exports = {
 
     // show one user
     async show(req,res){
-        const user = User.findById(req.params.id);
+        const user = await User.findById(req.params.id);
 
         return res.json(user);
+
+    
     },
 
     // update an user
     async update(req,res){
-        const user = User.findByIdAndUpdate(req.params.id,req.body, {new: true});
+        const user = await User.findByIdAndUpdate(req.params.id, req.body, {new:  true});
+
+        return res.json(user);
     }
 }
